@@ -90,7 +90,17 @@
       max-width: 790px; margin: 0 0 24px; font: 400 clamp(48px, 5.2vw, 82px)/1.08 "Zen Kurenaido", sans-serif;
       letter-spacing: .005em;
     }
-    .hero-signature { margin: 20px 0 0; color: var(--orange); font: 400 clamp(27px, 2.3vw, 36px)/1.2 "Zen Kurenaido", sans-serif; letter-spacing: .08em; }
+    .hero-signature {
+      display: inline-block; margin: 20px 0 0; padding: 0 10px 4px 0;
+      color: var(--orange); font: 400 clamp(25px, 2.1vw, 32px)/1.2 "Zen Kurenaido", sans-serif;
+      letter-spacing: .08em; transform: rotate(-8deg); transform-origin: left center;
+      position: relative;
+    }
+    .hero-signature::after {
+      content: ""; position: absolute; left: 5px; right: -12px; bottom: -3px;
+      height: 1.5px; background: var(--orange); transform: rotate(-8deg);
+      border-radius: 50%;
+    }
     .hero-copy .subline {
       margin: 0 0 10px; color: var(--muted); font-size: clamp(17px, 1.55vw, 22px); line-height: 1.8;
     }
@@ -98,9 +108,11 @@
       margin: 0; color: var(--muted); font-size: clamp(14px, 1.15vw, 17px); line-height: 2;
     }
     .hero-image {
-      position: absolute; z-index: 1; top: 0; right: 0; width: 51%; height: 100%;
+      position: absolute; z-index: 1; top: 0; right: 0; width: 55%; height: 100%;
       background-image: url("home-hero-decor.png"); background-repeat: no-repeat;
-      background-position: center center; background-size: cover;
+      background-position: center right; background-size: contain;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.12) 7%, #000 19%);
+      mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.12) 7%, #000 19%);
     }
     .page-title {
       display: flex; justify-content: space-between; align-items: baseline;
@@ -214,15 +226,21 @@
       .page { padding: 30px 0 58px; }
       .home { padding-top: 0; }
       .home { width: 100%; margin-left: 0; }
-      .hero-layout { min-height: auto; margin: 0 -18px; padding: 48px 18px 0; display: block; }
-      .hero-layout::before { width: 300px; top: -220px; left: 48%; }
-      .hero-layout::after { width: 360px; left: -240px; bottom: -310px; }
+      .hero-layout { min-height: auto; margin: 0 -18px; padding: 42px 18px 0; display: block; }
+      .hero-layout::before { width: 220px; top: -165px; left: 58%; opacity: .85; }
+      .hero-layout::after { width: 300px; left: -220px; bottom: -250px; }
       .hero-copy { width: 100%; max-width: 100%; }
-      .hero-copy h1 { font-size: clamp(42px, 10vw, 62px); margin-bottom: 18px; max-width: 100%; }
-      .hero-copy .subline { font-size: 17px; }
-      .hero-copy .eyebrow { margin-bottom: 20px; font-size: 12px; }
-      .hero-signature { margin-top: 14px; }
-      .hero-image { position: relative; z-index: 1; width: calc(100% + 36px); height: 75vw; min-height: 280px; max-height: 440px; margin: 12px -18px 0; background-position: center center; background-size: cover; }
+      .hero-copy h1 { font-size: clamp(39px, 9.4vw, 52px); line-height: 1.12; margin-bottom: 18px; max-width: 100%; }
+      .hero-copy .subline { font-size: 16px; line-height: 1.7; }
+      .hero-copy .intro { font-size: 14px; line-height: 1.8; }
+      .hero-copy .eyebrow { margin-bottom: 18px; font-size: 11px; letter-spacing: .13em; }
+      .hero-signature { margin-top: 13px; font-size: 25px; transform: rotate(-9deg); }
+      .hero-image {
+        position: relative; z-index: 1; display: block; width: calc(100% + 36px);
+        height: auto; aspect-ratio: 828 / 794; min-height: 0; max-height: none;
+        margin: 8px -18px 0; background-position: center center; background-size: contain;
+        -webkit-mask-image: none; mask-image: none;
+      }
       .hero-star { display: none; }
       .page-title { align-items: flex-start; flex-direction: column; gap: 6px; }
       .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
