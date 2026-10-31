@@ -94,6 +94,7 @@
     .hero-copy .intro {
       margin: 0; color: var(--muted); font-size: clamp(14px, 1.15vw, 17px); line-height: 2;
     }
+    .mobile-hero-art { display: none; }
     .hero-image {
       position: absolute; z-index: 2; width: clamp(150px, 17vw, 245px);
       height: auto; aspect-ratio: 255 / 245; object-fit: contain;
@@ -216,13 +217,13 @@
         aspect-ratio: auto; min-height: 0; height: auto; margin: 0 -16px; padding: 34px 20px 0;
         display: block; overflow: hidden; background-image: none;
       }
-      .hero-layout::before {
-        content: ""; position: absolute; z-index: 0; left: 50%; bottom: 0;
-        transform: translateX(-50%);
-        width: 100vw; aspect-ratio: 1 / 1; height: auto;
-        background: url("a_balanced_mid_century_modern_abstract_graphic_on.png") center center / 100% 100% no-repeat;
+      .hero-layout::before { content: none; }
+      .mobile-hero-art {
+        display: block; position: relative; z-index: 1;
+        width: 100vw; max-width: none; height: auto;
+        margin: 22px 0 0 -20px;
       }
-      .hero-layout { padding-bottom: calc(100vw + 12px); }
+      .hero-layout { padding-bottom: 0; }
       .hero-copy { width: 100%; max-width: 100%; flex: none; }
       .hero-copy .eyebrow { margin: 0 0 16px; font-size: 10px; letter-spacing: .12em; }
       .hero-copy h1 { font-size: clamp(37px, 9vw, 46px); line-height: 1.1; margin: 0 0 16px; max-width: 100%; }
@@ -262,6 +263,7 @@
           <p class="intro">日常の小さな発見を、グラフィックやイラストに。</p>
           <p class="hero-signature">えびしま</p>
         </div>
+        <img class="mobile-hero-art" src="a_balanced_mid_century_modern_abstract_graphic_on.png" alt="エビとミッドセンチュリーの幾何学模様">
         <img class="hero-image" src="home-shrimp-overlay.png" alt="オレンジ色のエビのイラスト">
         <div class="hero-star" aria-hidden="true"><i></i><i></i><b></b></div>
       </div>
