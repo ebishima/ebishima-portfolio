@@ -204,23 +204,32 @@
       .about-layout { grid-template-columns: 240px minmax(0, 1fr); gap: 36px; }
     }
     @media (max-width: 640px) {
-      .shell { width: min(100% - 36px, var(--max)); }
-      header { min-height: auto; padding: 18px 0; flex-direction: column; align-items: flex-start; gap: 14px; }
-      .brand { width: 160px; }
-      nav { width: 100%; justify-content: space-between; gap: 12px; }
-      nav a { font-size: 13px; }
+      .shell { width: min(100% - 32px, var(--max)); }
+      header { min-height: auto; padding: 12px 0 14px; flex-direction: column; align-items: center; gap: 9px; }
+      header > a { display: block; width: 100%; }
+      .brand { width: 132px; max-height: 42px; }
+      nav { width: 100%; justify-content: space-between; gap: 7px; }
+      nav a { font-size: 11px; letter-spacing: .09em; white-space: nowrap; }
       .page { padding: 30px 0 58px; }
-      .home { padding-top: 0; }
-      .home { width: 100%; margin-left: 0; }
-      .hero-layout { aspect-ratio: auto; min-height: 0; margin: 0 -18px; padding: 42px 18px 300px; display: block;
-        background-size: auto 330px; background-position: center bottom; }
-      .hero-copy { width: 100%; max-width: 100%; }
-      .hero-copy h1 { font-size: clamp(39px, 9.4vw, 52px); line-height: 1.12; margin-bottom: 18px; max-width: 100%; }
-      .hero-copy .subline { font-size: 16px; line-height: 1.7; }
-      .hero-copy .intro { font-size: 14px; line-height: 1.8; }
-      .hero-copy .eyebrow { margin-bottom: 18px; font-size: 11px; letter-spacing: .13em; }
-      .hero-signature { margin-top: 13px; font-size: 21px; transform: rotate(-10deg); }
-      .hero-image { width: 145px; right: 12%; top: auto; bottom: 38px; transform: none; }
+      .home { padding-top: 0; width: 100%; margin-left: 0; }
+      .hero-layout {
+        aspect-ratio: auto; min-height: 0; height: auto; margin: 0 -16px; padding: 34px 20px 0;
+        display: block; overflow: hidden; background-image: none;
+      }
+      .hero-layout::before {
+        content: ""; position: absolute; z-index: 0; left: 0; right: 0; bottom: 0;
+        width: 100%; aspect-ratio: 1648 / 900; height: auto;
+        background: url("home-hero-wide.png") center bottom / 100% 100% no-repeat;
+      }
+      .hero-layout { padding-bottom: calc((100vw - 32px) * 0.546 + 24px); }
+      .hero-copy { width: 100%; max-width: 100%; flex: none; }
+      .hero-copy .eyebrow { margin: 0 0 16px; font-size: 10px; letter-spacing: .12em; }
+      .hero-copy h1 { font-size: clamp(37px, 9vw, 46px); line-height: 1.1; margin: 0 0 16px; max-width: 100%; }
+      .hero-copy .subline { font-size: 14px; line-height: 1.65; letter-spacing: 0; margin-bottom: 8px; }
+      .hero-copy .intro { font-size: 12.5px; line-height: 1.7; letter-spacing: 0; }
+      .hero-signature { margin-top: 12px; margin-left: 2px; font-size: 17px; letter-spacing: .04em; transform: rotate(-9deg); }
+      .hero-signature::after { left: 4px; right: -8px; bottom: -2px; height: 1px; }
+      .hero-image { width: 108px; right: 13%; top: auto; bottom: 8%; transform: none; z-index: 2; }
       .hero-star { display: none; }
       .page-title { align-items: flex-start; flex-direction: column; gap: 6px; }
       .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
