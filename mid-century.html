@@ -102,6 +102,13 @@ h2{font-size:clamp(1.4rem,2.4vw,2rem);font-weight:normal;margin:0 0 6px}
 .page-head h1{font-size:clamp(1.6rem,3.4vw,2.6rem);margin:0 0 8px;font-weight:normal;line-height:1.35}
 .work{margin:28px 0 0;border:1px solid var(--line);border-radius:8px;background:var(--card);padding:16px;display:flex;align-items:center;justify-content:center}
 .work img{max-height:74vh;width:auto;max-width:100%;height:auto;object-fit:contain}
+.works-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:30px 0 0}
+.work-card{margin:0;padding:12px;background:#fff;border:1px solid var(--line);border-radius:6px}
+.work-card a{display:flex;align-items:center;justify-content:center;min-height:220px;background:var(--card);border-radius:3px}
+.work-card img{max-width:100%;max-height:360px;width:auto;height:auto;object-fit:contain}
+.work-card figcaption{padding:9px 2px 1px;font-size:.78rem;letter-spacing:.12em;color:var(--muted)}
+@media(max-width:760px){.works-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.work-card{padding:8px}.work-card a{min-height:160px}.work-card img{max-height:240px}}
+@media(max-width:420px){.works-grid{grid-template-columns:1fr}.work-card a{min-height:200px}}
 </style>
 </head>
 <body>
@@ -121,10 +128,7 @@ h2{font-size:clamp(1.4rem,2.4vw,2rem);font-weight:normal;margin:0 0 6px}
     <p class="eyebrow">Collection 02</p>
     <h1>MID-CENTURY INSPIRED</h1>
     <p class="sec-sub">Selected work</p>
-    <div class="work">
-      <img src="mid-century-inspired.png" alt="KEEP CREATING ポスター">
-    </div>
-    <p class="note">作品を追加していきます。</p>
+    <div class="works-grid">\n      <figure class="work-card"><a href="MID-01.png" target="_blank" rel="noopener"><img src="MID-01.png" alt="MID-01"></a><figcaption>MID-01</figcaption></figure>\n      <figure class="work-card"><a href="MID-02.png" target="_blank" rel="noopener"><img src="MID-02.png" alt="MID-02"></a><figcaption>MID-02</figcaption></figure>\n      <figure class="work-card"><a href="MID-03.png" target="_blank" rel="noopener"><img src="MID-03.png" alt="MID-03"></a><figcaption>MID-03</figcaption></figure>\n      <figure class="work-card"><a href="MID-04.png" target="_blank" rel="noopener"><img src="MID-04.png" alt="MID-04"></a><figcaption>MID-04</figcaption></figure>\n      <figure class="work-card"><a href="MID-05.png" target="_blank" rel="noopener"><img src="MID-05.png" alt="MID-05"></a><figcaption>MID-05</figcaption></figure>\n      <figure class="work-card"><a href="MID-06.png" target="_blank" rel="noopener"><img src="MID-06.png" alt="MID-06"></a><figcaption>MID-06</figcaption></figure>\n      <figure class="work-card"><a href="MID-07.png" target="_blank" rel="noopener"><img src="MID-07.png" alt="MID-07"></a><figcaption>MID-07</figcaption></figure>\n      <figure class="work-card"><a href="MID-08.png" target="_blank" rel="noopener"><img src="MID-08.png" alt="MID-08"></a><figcaption>MID-08</figcaption></figure>\n      <figure class="work-card"><a href="MID-09.png" target="_blank" rel="noopener"><img src="MID-09.png" alt="MID-09"></a><figcaption>MID-09</figcaption></figure>\n      <figure class="work-card"><a href="MID-10.png" target="_blank" rel="noopener"><img src="MID-10.png" alt="MID-10"></a><figcaption>MID-10</figcaption></figure>\n      <figure class="work-card"><a href="MID-11.png" target="_blank" rel="noopener"><img src="MID-11.png" alt="MID-11"></a><figcaption>MID-11</figcaption></figure>\n      <figure class="work-card"><a href="MID-12.png" target="_blank" rel="noopener"><img src="MID-12.png" alt="MID-12"></a><figcaption>MID-12</figcaption></figure>\n      <figure class="work-card"><a href="MID-13.png" target="_blank" rel="noopener"><img src="MID-13.png" alt="MID-13"></a><figcaption>MID-13</figcaption></figure>\n      <figure class="work-card"><a href="MID-14.png" target="_blank" rel="noopener"><img src="MID-14.png" alt="MID-14"></a><figcaption>MID-14</figcaption></figure>\n      <figure class="work-card"><a href="MID-15.png" target="_blank" rel="noopener"><img src="MID-15.png" alt="MID-15"></a><figcaption>MID-15</figcaption></figure>\n      <figure class="work-card"><a href="MID-16.png" target="_blank" rel="noopener"><img src="MID-16.png" alt="MID-16"></a><figcaption>MID-16</figcaption></figure>\n      <figure class="work-card"><a href="MID-17.png" target="_blank" rel="noopener"><img src="MID-17.png" alt="MID-17"></a><figcaption>MID-17</figcaption></figure>\n      <figure class="work-card"><a href="MID-18.png" target="_blank" rel="noopener"><img src="MID-18.png" alt="MID-18"></a><figcaption>MID-18</figcaption></figure>\n      <figure class="work-card"><a href="MID-19.png" target="_blank" rel="noopener"><img src="MID-19.png" alt="MID-19"></a><figcaption>MID-19</figcaption></figure>\n      <figure class="work-card"><a href="MID-20.png" target="_blank" rel="noopener"><img src="MID-20.png" alt="MID-20"></a><figcaption>MID-20</figcaption></figure>\n    </div>
     <a class="back" href="index.html#gallery">&larr; GALLERY</a>
   </section>
 </main>
