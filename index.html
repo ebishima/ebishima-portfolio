@@ -320,6 +320,44 @@ padding: 0;
   }
 }
       .season-empty { grid-column:1/-1; color:var(--muted); padding:32px 0; }
+    @media (max-width: 640px) {
+      .season-grid {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .season-card {
+        display: flex;
+        flex-direction: column;
+        width: calc((100% - 48px) / 4);
+        min-width: 0;
+        padding: 0;
+        background: transparent;
+      }
+      .season-image {
+        width: 100%;
+        aspect-ratio: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: visible;
+        background: transparent;
+      }
+      .season-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: none;
+        object-fit: contain;
+      }
+      .season-name {
+        padding: 6px 0 0;
+        font-size: 10px;
+        line-height: 1.35;
+      }
+    }
     @media (min-width: 641px) {
       .season-grid { display:flex; justify-content:flex-start; align-items:flex-start; gap:48px; }
       .season-card { display:flex; flex-direction:column; width:220px; min-width:0; padding:0; background:transparent; transition:opacity .2s ease; }
