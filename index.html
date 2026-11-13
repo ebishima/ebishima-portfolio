@@ -482,10 +482,10 @@ padding: 0;
           </div>
         </article>
         <div class="book-category-grid">
-          <article class="book-card">
+          <a class="book-card" href="#picture-books">
             <div class="book-image"><img src="BOOK-PICTURE-BOOKS.png" alt="Picture book cover"></div>
             <h2>PICTURE BOOKS</h2>
-          </article>
+          </a>
           <a class="book-card" href="#manga">
             <div class="book-image"><img src="BOOK-MANGA.png" alt="本日も、おつかれさまです。"></div>
             <h2>MANGA</h2>
@@ -520,6 +520,49 @@ padding: 0;
             <img src="BOOK-MANGA.png" alt="本日も、おつかれさまです。">
           </a>
           <figcaption>本日も、おつかれさまです。</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="picture-books" class="page">
+      <a class="back" href="#books">← BOOKS</a>
+      <div class="page-title"><h1>PICTURE BOOKS</h1></div>
+      <div class="work-grid">
+        <figure class="work-item">
+          <a class="book-image" href="https://amzn.asia/d/0b1ybxPs" target="_blank" rel="noopener noreferrer" aria-label="ぴかぴかせんし あおくんと むしばいきんのかくれんぼをAmazonで見る">
+            <img src="BOOK-PICTURE-BOOKS.png" alt="ぴかぴかせんし あおくんと むしばいきんのかくれんぼ">
+          </a>
+          <figcaption>ぴかぴかせんし あおくんと むしばいきんのかくれんぼ</figcaption>
+        </figure>
+        <figure class="work-item">
+          <a class="book-image" href="https://amzn.asia/d/08v4xDGV" target="_blank" rel="noopener noreferrer" aria-label="みんながしらない！はのひみつをAmazonで見る">
+            <img src="picture-book-02.png" alt="みんながしらない！はのひみつ">
+          </a>
+          <figcaption>みんながしらない！はのひみつ</figcaption>
+        </figure>
+        <figure class="work-item">
+          <a class="book-image" href="https://amzn.asia/d/02lPawYb" target="_blank" rel="noopener noreferrer" aria-label="つむちゃんとねているあいだのむしばいきんをAmazonで見る">
+            <img src="picture-book-03.png" alt="つむちゃんとねているあいだのむしばいきん">
+          </a>
+          <figcaption>つむちゃんとねているあいだのむしばいきん</figcaption>
+        </figure>
+        <figure class="work-item">
+          <a class="book-image" href="https://amzn.asia/d/000OwzUp" target="_blank" rel="noopener noreferrer" aria-label="もぐもぐしゅっしゅっ！をAmazonで見る">
+            <img src="picture-book-04.png" alt="もぐもぐしゅっしゅっ！">
+          </a>
+          <figcaption>もぐもぐしゅっしゅっ！</figcaption>
+        </figure>
+        <figure class="work-item">
+          <a class="book-image" href="https://amzn.asia/d/07POiq0w" target="_blank" rel="noopener noreferrer" aria-label="明日もとなりでをAmazonで見る">
+            <img src="picture-book-05.png" alt="明日もとなりで">
+          </a>
+          <figcaption>明日もとなりで</figcaption>
+        </figure>
+        <figure class="work-item">
+          <a class="book-image" href="https://amzn.asia/d/0caLmOYi" target="_blank" rel="noopener noreferrer" aria-label="腹が、減った。をAmazonで見る">
+            <img src="picture-book-06.png" alt="腹が、減った。">
+          </a>
+          <figcaption>腹が、減った。</figcaption>
         </figure>
       </div>
     </section>
@@ -592,7 +635,7 @@ padding: 0;
       button.addEventListener("click", () => setLanguage(button.dataset.langChoice));
     });
 
-    const pageIds = ["home", "gallery", "collection", "books", "poetry-books", "manga", "links", "about", "shop"];
+    const pageIds = ["home", "gallery", "collection", "books", "poetry-books", "manga", "picture-books", "links", "about", "shop"];
     let collections = [];
     let currentCollection = null;
 
