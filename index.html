@@ -33,12 +33,24 @@
       gap: 32px; border-bottom: 1px solid var(--line);
     }
     .brand { width: 210px; max-height: 62px; object-fit: contain; object-position: left center; }
-    nav { display: flex; align-items: center; gap: clamp(22px, 4vw, 58px); }
+    .header-tools { display:flex; align-items:center; gap:22px; }
+    nav { display: flex; align-items: center; gap: clamp(12px, 2vw, 30px); }
     nav a {
-      font-family: "Josefin Sans", sans-serif; font-size: 17px; font-weight: 400;
-      letter-spacing: .13em; transition: color .2s;
+      font-family: "Josefin Sans", sans-serif; font-size: 14px; font-weight: 400;
+      letter-spacing: .11em; white-space:nowrap; transition: color .2s;
     }
     nav a:hover, .text-link:hover { color: var(--orange); }
+    .lang-switch { display:flex; align-items:center; gap:5px; font:12px "Josefin Sans",sans-serif; letter-spacing:.08em; white-space:nowrap; }
+    .lang-switch button { border:0; padding:4px 2px; background:transparent; color:var(--muted); font:inherit; cursor:pointer; }
+    .lang-switch button.active { color:var(--orange); }
+    .whats-new-section { width:min(100% - 64px, 1120px); margin:0 auto; padding:54px 0 76px; }
+    .whats-new-section .page-title { margin-bottom:22px; }
+    .whats-new-section .page-title h2 { margin:0; font:400 clamp(32px,4vw,52px) "Cormorant Garamond",serif; letter-spacing:.035em; }
+    .news-entry { max-width:760px; padding:4px 0 22px; border-bottom:1px solid var(--line); }
+    .news-entry time { color:var(--muted); font:13px "Josefin Sans",sans-serif; letter-spacing:.08em; }
+    .news-entry h3 { margin:8px 0; font-size:20px; font-weight:400; }
+    .news-entry p { margin:0; color:var(--muted); line-height:2; }
+    .coming-soon { min-height:38vh; display:grid; place-items:center; font:clamp(24px,4vw,42px) "Cormorant Garamond",serif; letter-spacing:.12em; }
     main { min-height: 70vh; }
     .page { display: none; padding: 42px 0 86px; }
     .page.active { display: block; }
@@ -217,8 +229,10 @@
       header { min-height: auto; padding: 12px 0 14px; flex-direction: column; align-items: center; gap: 9px; }
       header > a { display: block; width: 100%; }
       .brand { width: 132px; max-height: 42px; }
-      nav { width: 100%; justify-content: space-between; gap: 7px; }
-      nav a { font-size: 11px; letter-spacing: .09em; white-space: nowrap; }
+      .header-tools { width:100%; gap:7px; }
+      nav { flex:1; min-width:0; justify-content:space-between; gap:3px; }
+      nav a { font-size:9px; letter-spacing:.035em; white-space:nowrap; }
+      .lang-switch { gap:2px; font-size:10px; }
       .page { padding: 30px 0 58px; }
       .home { padding-top: 0; width: 100%; margin-left: 0; }
       .hero-layout {
@@ -371,9 +385,14 @@ padding: 0;
 <body>
   <header class="shell">
     <a href="#home" aria-label="EBISHIMA home"><img class="brand" src="ebishima-logo-transparent.png" alt="EBISHIMA"></a>
-    <nav aria-label="Main navigation">
-      <a href="#gallery">GALLERY</a><a href="#books">BOOKS</a><a href="#links">LINKS</a><a href="#about">ABOUT</a>
-    </nav>
+    <div class="header-tools">
+      <nav aria-label="Main navigation">
+        <a href="#gallery">GALLERY</a><a href="#books">BOOKS</a><a href="#links">LINKS</a><a href="#about">ABOUT</a><a href="#whats-new">WHAT'S NEW</a><a href="#shop">SHOP</a>
+      </nav>
+      <div class="lang-switch" aria-label="Language">
+        <button type="button" data-lang-choice="ja" class="active" aria-pressed="true">JP</button><span>/</span><button type="button" data-lang-choice="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
   </header>
 
   <main class="shell">
@@ -390,6 +409,14 @@ padding: 0;
         <img class="hero-image" src="home-shrimp-overlay.png" alt="オレンジ色のエビのイラスト">
         <div class="hero-star" aria-hidden="true"><i></i><i></i><b></b></div>
       </div>
+      <section id="whats-new" class="whats-new-section" aria-labelledby="whats-new-title">
+        <div class="page-title"><h2 id="whats-new-title">WHAT'S NEW</h2></div>
+        <article class="news-entry">
+          <time datetime="2026-11-16">2026.11.16</time>
+          <h3 data-ja="ポートフォリオサイトを公開しました。" data-en="EBISHIMA PORTFOLIO IS NOW OPEN.">ポートフォリオサイトを公開しました。</h3>
+          <p data-ja="EBISHIMAのポートフォリオサイトを公開しました。グラフィック作品やイラスト、これまでの制作活動をご覧いただけます。" data-en="The EBISHIMA portfolio website is now open. Explore graphic works, illustrations, and selected creative projects.">EBISHIMAのポートフォリオサイトを公開しました。グラフィック作品やイラスト、これまでの制作活動をご覧いただけます。</p>
+        </article>
+      </section>
     </section>
 
     <section id="gallery" class="page">
@@ -416,7 +443,6 @@ padding: 0;
       <div class="page-title"><h1>LINKS</h1></div>
       <div class="links-list">
         <a href="https://note.com/emi_dh" target="_blank" rel="noopener noreferrer">note <span>↗</span></a>
-        <a href="https://www.amazon.co.jp/stores/author/B0GTCH6KRN/about" target="_blank" rel="noopener noreferrer">Kindle <span>↗</span></a>
         <a href="https://x.com/emisan_maru" target="_blank" rel="noopener noreferrer">X <span>↗</span></a>
         <a href="https://www.threads.com/@ebishima_emi_contents" target="_blank" rel="noopener noreferrer">Threads <span>↗</span></a>
         <a href="https://www.instagram.com/ebishima_emi_contents/" target="_blank" rel="noopener noreferrer">Instagram <span>↗</span></a>
@@ -448,6 +474,11 @@ padding: 0;
         </div>
       </div>
     </section>
+
+    <section id="shop" class="page">
+      <div class="page-title"><h1>SHOP</h1></div>
+      <div class="coming-soon">COMING SOON</div>
+    </section>
   </main>
 
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged artwork">
@@ -461,21 +492,39 @@ padding: 0;
   </footer>
 
   <script>
-    const pageIds = ["home", "gallery", "collection", "books", "links", "about"];
+    function setLanguage(language) {
+      document.documentElement.lang = language;
+      document.querySelectorAll("[data-ja][data-en]").forEach(element => {
+        element.textContent = element.dataset[language];
+      });
+      document.querySelectorAll("[data-lang-choice]").forEach(button => {
+        const active = button.dataset.langChoice === language;
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
+    }
+    document.querySelectorAll("[data-lang-choice]").forEach(button => {
+      button.addEventListener("click", () => setLanguage(button.dataset.langChoice));
+    });
+
+    const pageIds = ["home", "gallery", "collection", "books", "links", "about", "shop"];
     let collections = [];
     let currentCollection = null;
 
     function route() {
       const hash = location.hash.replace("#", "") || "home";
-      const collection = collections.find(item => item.id === hash);
-      const season = collections.flatMap(item => item.seasons || []).find(item => item.id === hash);
-      const nestedCollection = collections.flatMap(item => item.seasons || []).flatMap(item => item.collections || []).find(item => item.id === hash);
-      const pageId = (collection || season || nestedCollection) ? "collection" : (pageIds.includes(hash) ? hash : "home");
+      const isWhatsNew = hash === "whats-new";
+      const routeHash = isWhatsNew ? "home" : hash;
+      const collection = collections.find(item => item.id === routeHash);
+      const season = collections.flatMap(item => item.seasons || []).find(item => item.id === routeHash);
+      const nestedCollection = collections.flatMap(item => item.seasons || []).flatMap(item => item.collections || []).find(item => item.id === routeHash);
+      const pageId = (collection || season || nestedCollection) ? "collection" : (pageIds.includes(routeHash) ? routeHash : "home");
       document.querySelectorAll(".page").forEach(page => page.classList.toggle("active", page.id === pageId));
       if (nestedCollection) renderNestedCollection(nestedCollection, season || collections.flatMap(item => item.seasons || []).find(item => (item.collections || []).some(c => c.id === hash)));
       else if (season) renderSeason(season);
       else if (collection) renderCollection(collection);
-      window.scrollTo({top: 0, behavior: "instant"});
+      if (isWhatsNew) document.getElementById("whats-new").scrollIntoView({behavior:"instant", block:"start"});
+      else window.scrollTo({top: 0, behavior: "instant"});
     }
 
     function renderCategories() {
@@ -591,6 +640,7 @@ padding: 0;
 
    collections = {"categories":[{"id":"ebi-series","title":"EBI SERIES","cover":"ebi-series-01.png","works":[{"title":"EBI SERIES 01","image":"ebi-01.png"},{"title":"EBI SERIES 02","image":"ebi-02.png"},{"title":"EBI SERIES 03","image":"ebi-03.png"},{"title":"EBI SERIES 04","image":"ebi-04.png"},{"title":"EBI SERIES 05","image":"ebi-05.png"},{"title":"EBI SERIES 06","image":"ebi-07.png"},{"title":"EBI SERIES 07","image":"ebi-08.png"},{"title":"EBI SERIES 08","image":"ebi-09.png"},{"title":"EBI SERIES 09","image":"ebi-10.png"},{"title":"EBI SERIES 10","image":"ebi-011.png"},{"title":"EBI SERIES 11","image":"ebi-012.png"},{"title":"EBI SERIES 12","image":"ebi-013.png"},{"title":"EBI SERIES 13","image":"ebi-014.png"},{"title":"EBI SERIES 14","image":"ebi-015.png"},{"title":"EBI SERIES 15","image":"ebi-016.png"},{"title":"EBI SERIES 16","image":"ebi-017.png"},{"title":"EBI SERIES 17","image":"ebi-018.png"},{"title":"EBI SERIES 18","image":"ebi-019.png"},{"title":"EBI SERIES 19","image":"ebi-020.png"},{"title":"EBI SERIES 20","image":"ebi-021.png"},{"title":"EBI SERIES 21","image":"ebi-022.png"},{"title":"EBI SERIES 22","image":"ebi-023.png"},{"title":"EBI SERIES 23","image":"ebi-024.png"},{"title":"EBI SERIES 24","image":"ebi-025.png"},{"title":"EBI SERIES 25","image":"ebi-026.png"},{"title":"EBI SERIES 26","image":"ebi-027.png"},{"title":"EBI SERIES 27","image":"ebi-028.png"},{"title":"EBI SERIES 28","image":"ebi-029.png"},{"title":"EBI SERIES 29","image":"ebi-030.png"},{"title":"EBI SERIES 30","image":"ebi-031.png"},{"title":"EBI SERIES 31","image":"ebi-032.png"},{"title":"EBI SERIES 32","image":"ebi-033.png"},{"title":"EBI SERIES 33","image":"ebi-034.png"},{"title":"EBI SERIES 34","image":"ebi-035.png"},{"title":"EBI SERIES 35","image":"ebi-036.png"}]},{"id":"mid-century","title":"MID-CENTURY INSPIRED","cover":"mid-century-inspired.png","works":[{"title":"MID-01","image":"MID-01.png"},{"title":"MID-02","image":"MID-02.png"},{"title":"MID-03","image":"MID-03.png"},{"title":"MID-04","image":"MID-04.png"},{"title":"MID-05","image":"MID-05.png"},{"title":"MID-06","image":"MID-06.png"},{"title":"MID-07","image":"MID-07.png"},{"title":"MID-08","image":"MID-08.png"},{"title":"MID-09","image":"MID-09.png"},{"title":"MID-10","image":"MID-010.png"},{"title":"MID-11","image":"MID-011.png"},{"title":"MID-12","image":"MID-012.png"},{"title":"MID-13","image":"MID-013.png"},{"title":"MID-14","image":"MID-014.png"},{"title":"MID-15","image":"MID-015.png"},{"title":"MID-16","image":"MID-016.png"},{"title":"MID-17","image":"MID-017.png"},{"title":"MID-18","image":"MID-018.png"},{"title":"MID-19","image":"MID-019.png"},{"title":"MID-20","image":"MID-020.png"}]},{"id":"bauhaus","title":"GEOMETRIC GRAPHICS","cover":"bauhaus-inspired.png","works":[{"title":"GEO-01","image":"GEO-01.png"},{"title":"GEO-02","image":"GEO-02.png"},{"title":"GEO-03","image":"GEO-03.png"},{"title":"GEO-04","image":"GEO-04.png"},{"title":"GEO-05","image":"GEO-05.png"},{"title":"GEO-06","image":"GEO-06.png"},{"title":"GEO-07","image":"GEO-07.png"},{"title":"GEO-08","image":"GEO-08.png"},{"title":"GEO-09","image":"GEO-09.png"},{"title":"GEO-10","image":"GEO-10.png"},{"title":"GEO-11","image":"GEO-11.png"},{"title":"GEO-12","image":"GEO-12.png"},{"title":"GEO-13","image":"GEO-13.png"},{"title":"GEO-14","image":"GEO-14.png"},{"title":"GEO-15","image":"GEO-15.png"},{"title":"GEO-16","image":"GEO-16.png"},{"title":"GEO-17","image":"GEO-17.png"},{"title":"GEO-18","image":"GEO-18.png"},{"title":"GEO-19","image":"GEO-19.png"},{"title":"GEO-20","image":"GEO-20.png"},{"title":"GEO-21","image":"GEO-21.png"},{"title":"GEO-22","image":"GEO-22.png"},{"title":"GEO-23","image":"GEO-23.png"},{"title":"GEO-24","image":"GEO-24.png"},{"title":"GEO-25","image":"GEO-25.png"},{"title":"GEO-26","image":"GEO-26.png"},{"title":"GEO-27","image":"GEO-27.png"},{"title":"GEO-28","image":"GEO-28.png"},{"title":"GEO-29","image":"GEO-29.png"},{"title":"GEO-30","image":"GEO-30.png"},{"title":"GEO-31","image":"GEO-31.png"},{"title":"GEO-32","image":"GEO-32.png"},{"title":"GEO-33","image":"GEO-33.png"},{"title":"GEO-34","image":"GEO-34.png"},{"title":"GEO-35","image":"GEO-35.png"},{"title":"GEO-36","image":"GEO-36.png"},{"title":"GEO-37","image":"GEO-37.png"},{"title":"GEO-38","image":"GEO-38.png"},{"title":"GEO-39","image":"GEO-39.png"},{"title":"GEO-40","image":"GEO-40.png"},{"title":"GEO-41","image":"GEO-41.png"},{"title":"GEO-42","image":"GEO-42.png"},{"title":"GEO-43","image":"GEO-43.png"},{"title":"GEO-44","image":"GEO-44.png"},{"title":"GEO-45","image":"GEO-45.png"},{"title":"GEO-46","image":"GEO-46.png"},{"title":"GEO-47","image":"GEO-47.png"},{"title":"GEO-48","image":"GEO-48.png"},{"title":"GEO-49","image":"GEO-49.png"},{"title":"GEO-50","image":"GEO-50.png"},{"title":"GEO-51","image":"GEO-51.png"},{"title":"GEO-52","image":"GEO-52.png"},{"title":"GEO-53","image":"GEO-53.png"},{"title":"GEO-54","image":"GEO-54.png"},{"title":"GEO-55","image":"GEO-55.png"},{"title":"GEO-56","image":"GEO-56.png"},{"title":"GEO-57","image":"GEO-57.png"},{"title":"GEO-58","image":"GEO-58.png"},{"title":"GEO-59","image":"GEO-59.png"},{"title":"GEO-60","image":"GEO-60.png"}]},{"id":"minimal-architecture","title":"MINIMAL ARCHITECTURE INSPIRED","cover":"minimal-architecture-inspired.png","works":[{"title":"BE HERE","image":"MA-01.png"},{"title":"BETWEEN","image":"MA-02.png"},{"title":"BLACK WHITE","image":"MA-03.png"},{"title":"BLANCE","image":"MA-04.png"},{"title":"BLUE RED","image":"MA-05.png"},{"title":"CREVE","image":"MA-06.png"},{"title":"DISTANCE","image":"MA-07.png"},{"title":"EMPTY","image":"MA-08.png"},{"title":"HOLE","image":"MA-09.png"},{"title":"KEEP GOING","image":"MA-10.png"},{"title":"LIGHT","image":"MA-11.png"},{"title":"LINE","image":"MA-12.png"},{"title":"LOOK","image":"MA-13.png"},{"title":"QUIET","image":"MA-14.png"},{"title":"RED","image":"MA-15.png"},{"title":"SEE～","image":"MA-16.png"},{"title":"SILENCE","image":"MA-17.png"},{"title":"SKY","image":"MA-18.png"},{"title":"SMALL","image":"MA-19.png"},{"title":"SOME WHERE","image":"MA-20.png"},{"title":"STAY","image":"MA-21.png"},{"title":"STEP","image":"MA-22.png"},{"title":"TIDE","image":"MA-23.png"},{"title":"WATER","image":"MA-24.png"},{"title":"WAVE","image":"MA-25.png"},{"title":"WINDOW","image":"MA-26.png"},{"title":"STILL HERE","image":"MA-27.png"},{"title":"NOT YET","image":"MA-28.png"},{"title":"SOMEWHERE","image":"MA-29.png"},{"title":"TAKE YOUR TIME","image":"MA-30.png"},{"title":"A LITTLE LIGHT","image":"MA-31.png"},{"title":"BETWEEN DAYS","image":"MA-32.png"},{"title":"LOOK AGAIN","image":"MA-33.png"},{"title":"JUST ENOUGH","image":"MA-34.png"},{"title":"FAR FROM PERFECT","image":"MA-35.png"},{"title":"HERE FOR NOW","image":"MA-36.png"}]},{"id":"other","title":"OTHER","cover":"other-inspired.png","works":[],"seasons":[{"id":"other-2026-summer","title":"2026 SUMMER","cover":"other-2026-summer.png","works":[],"collections":[{"id":"retro-pop-graphics","title":"RETRO POP GRAPHICS","cover":"RP-01.png","works":[{"title":"RIDE SLOW.","image":"RP-01.png"},{"title":"SWEET DAY.","image":"RP-02.png"},{"title":"PLAY.","image":"RP-03.png"},{"title":"FOCUS.","image":"RP-04.png"},{"title":"BREEZE.","image":"RP-05.png"},{"title":"CHILL.","image":"RP-06.png"},{"title":"SIMPLE.","image":"RP-07.png"},{"title":"SUMMER RADIO.","image":"RP-08.png"},{"title":"NIGHT.","image":"RP-09.png"},{"title":"SHADOW.","image":"RP-10.png"}]},{"id":"quiet-summer","title":"QUIET SUMMER","cover":"QS-01_SUN-WINDOW.png","works":[{"title":"SUN WINDOW","image":"QS-01_SUN-WINDOW.png"},{"title":"PALM SHADOW","image":"QS-02_PALM-SHADOW.png"},{"title":"SEA BREEZE","image":"QS-03_SEA-BREEZE.png"},{"title":"AFTER THE RAIN","image":"QS-04_AFTER-THE-RAIN.png"},{"title":"OPEN DOOR","image":"QS-05_OPEN-DOOR.png"},{"title":"PARASOL","image":"QS-06_PARASOL.png"},{"title":"FLOAT","image":"QS-07_FLOAT.png"},{"title":"SERIES No.008","image":"QS-08_SERIES-NO-008.png"},{"title":"MOONLIGHT BEACH","image":"QS-09_MOONLIGHT-BEACH.png"},{"title":"GOOD DESIGN, GOOD LIFE.","image":"QS-10_GOOD-DESIGN-GOOD-LIFE.png"}]},{"id":"quiet-objects","title":"QUIET OBJECTS","cover":"QO-01_RECORD.png","works":[{"title":"RECORD.","image":"QO-01_RECORD.png"},{"title":"CUP.","image":"QO-02_CUP.png"},{"title":"LEAF.","image":"QO-03_LEAF.png"},{"title":"WATER.","image":"QO-04_WATER.png"},{"title":"MORNING.","image":"QO-05_MORNING.png"},{"title":"WIND.","image":"QO-06_WIND.png"},{"title":"SOIL.","image":"QO-07_SOIL.png"},{"title":"RUST.","image":"QO-08_RUST.png"}]}]},{"id":"other-2026-autumn","title":"2026 AUTUMN","cover":"other-2026-autumn.png","works":[],"collections":[{"id":"quiet-autumn","title":"QUIET AUTUMN","cover":"QA-01_CHESTNUT.png","works":[{"title":"CHESTNUT.","image":"QA-01_CHESTNUT.png"},{"title":"FALLING.","image":"QA-02_FALLING.png"},{"title":"AMBER.","image":"QA-03_AMBER.png"},{"title":"HARVEST.","image":"QA-04_HARVEST.png"},{"title":"WIND.","image":"QA-05_WIND.png"},{"title":"AUTUMN LIGHT.","image":"QA-06_AUTUMN-LIGHT.png"},{"title":"ACORN.","image":"QA-07_ACORN.png"},{"title":"DUSK.","image":"QA-08_DUSK.png"},{"title":"LEAF SHADOW.","image":"QA-09_LEAF-SHADOW.png"},{"title":"SEASON TURN.","image":"QA-10_SEASON-TURN.png"}]}]}]}]}.categories;
     renderCategories();
+    setLanguage("ja");
     route();
 
     window.addEventListener("hashchange", route);
