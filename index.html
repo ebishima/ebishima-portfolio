@@ -490,11 +490,24 @@ padding: 0;
             <div class="book-image"><img src="BOOK-MANGA.png" alt="本日も、おつかれさまです。"></div>
             <h2>MANGA</h2>
           </article>
-          <article class="book-card">
+          <a class="book-card" href="#poetry-books">
             <div class="book-image"><img src="BOOK-POETRY-BOOKS.png" alt="WORK poetry book cover"></div>
             <h2>POETRY BOOKS</h2>
-          </article>
+          </a>
         </div>
+      </div>
+    </section>
+
+    <section id="poetry-books" class="page">
+      <a class="back" href="#books">← BOOKS</a>
+      <div class="page-title"><h1>POETRY BOOKS</h1></div>
+      <div class="work-grid">
+        <figure class="work-item">
+          <a class="book-image" href="https://amzn.asia/d/00spjeda" target="_blank" rel="noopener noreferrer" aria-label="WORKをAmazonで見る">
+            <img src="BOOK-POETRY-BOOKS.png" alt="WORK">
+          </a>
+          <figcaption>WORK</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -566,7 +579,7 @@ padding: 0;
       button.addEventListener("click", () => setLanguage(button.dataset.langChoice));
     });
 
-    const pageIds = ["home", "gallery", "collection", "books", "links", "about", "shop"];
+    const pageIds = ["home", "gallery", "collection", "books", "poetry-books", "links", "about", "shop"];
     let collections = [];
     let currentCollection = null;
 
