@@ -178,9 +178,15 @@
       position: absolute; top: 18px; right: 24px; border: 0; background: transparent;
       color: white; font: 300 34px "Josefin Sans", sans-serif; cursor: pointer;
     }
-    .books-card { max-width: 720px; padding: 24px 0; border-bottom: 1px solid var(--line); }
-    .books-card h2 { margin: 0 0 8px; font: 400 34px "Cormorant Garamond", serif; }
-    .books-card p { margin: 0 0 12px; color: var(--muted); }
+    .books-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; align-items:start; }
+    .book-card { min-width:0; padding:14px; background:var(--card); }
+    .book-featured { grid-column:1 / -1; }
+    .book-image { width:100%; aspect-ratio:4 / 3; display:flex; align-items:center; justify-content:center; overflow:hidden; background:var(--card); }
+    .book-image img { display:block; width:100%; height:100%; object-fit:contain; }
+    .book-card h2 { min-height:54px; display:flex; align-items:center; justify-content:center; margin:0; padding:12px 2px 2px; text-align:center; font:400 17px "Josefin Sans",sans-serif; letter-spacing:.08em; }
+    .book-featured .book-image { aspect-ratio: 16 / 7; }
+    .book-featured .book-image img { object-fit:contain; }
+    .book-featured h2 { font-size:22px; }
     .text-link { display: inline-block; border-bottom: 1px solid var(--orange); padding-bottom: 3px; }
     .links-list { max-width: 760px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 36px; }
     .links-list a {
@@ -261,6 +267,13 @@ margin: 22px 0 0;
       .category-card { padding: 9px; }
       .category-name { min-height: 48px; font-size: 12px; }
       .work-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .books-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+      .book-card { padding:9px; }
+      .book-featured { grid-column:1 / -1; }
+      .book-image { aspect-ratio:4 / 3; }
+      .book-featured .book-image { aspect-ratio:16 / 7; }
+      .book-card h2 { min-height:48px; font-size:12px; letter-spacing:.05em; }
+      .book-featured h2 { font-size:15px; }
       .links-list { grid-template-columns: 1fr; }
       .about-layout { grid-template-columns: 1fr; gap: 24px; }
       .profile-photo { width: min(62vw, 260px); margin: 0 auto; }
@@ -432,10 +445,23 @@ padding: 0;
 
     <section id="books" class="page">
       <div class="page-title"><h1>BOOKS</h1></div>
-      <div class="books-card">
-        <h2>Kindle</h2>
-        <p data-ja="EBISHIMAの出版作品はこちらからご覧いただけます。" data-en="Explore EBISHIMA's published works here.">EBISHIMAの出版作品はこちらからご覧いただけます。</p>
-        <a class="text-link" href="https://www.amazon.co.jp/stores/author/B0GTCH6KRN/about" target="_blank" rel="noopener noreferrer">View books ↗</a>
+      <div class="books-grid">
+        <article class="book-card book-featured">
+          <div class="book-image"><img src="BOOK-NEW-RELEASES.png" alt="WORK"></div>
+          <h2>NEW RELEASES</h2>
+        </article>
+        <article class="book-card">
+          <div class="book-image"><img src="BOOK-PICTURE-BOOKS.png" alt="Picture book cover"></div>
+          <h2>PICTURE BOOKS</h2>
+        </article>
+        <article class="book-card">
+          <div class="book-image"><img src="BOOK-MANGA.png" alt="本日も、おつかれさまです。"></div>
+          <h2>MANGA</h2>
+        </article>
+        <article class="book-card">
+          <div class="book-image"><img src="BOOK-POETRY-BOOKS.png" alt="WORK poetry book cover"></div>
+          <h2>POETRY BOOKS</h2>
+        </article>
       </div>
     </section>
 
